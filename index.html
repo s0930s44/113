@@ -6,7 +6,7 @@
 
   <!-- Primary Meta Tags -->
   <title>迎楓谷私服｜經典重溫、全新冒險體驗</title>
-  <meta name="title" content="迎楓谷私服｜經典重溫、全新冒險體驗" />
+  <meta name="title" content="迎楓谷｜經典重溫、全新冒險體驗" />
   <meta name="description" content="迎楓谷私服帶您體驗經典楓之谷的魅力，搭配全新活動與高倍率經驗系統，提供穩定伺服器與完善的社群互動，探索更多遊戲精彩！" />
   <meta name="keywords" content="迎楓谷, 私服, 楓之谷, 遊戲下載, 高倍率經驗, 穩定伺服器, 社群討論, SEO" />
   <meta name="robots" content="index, follow" />
@@ -53,7 +53,7 @@
       "@type": "Organization",
       "name": "迎楓谷私服",
       "url": "https://www.yourdomain.com/",
-      "logo": "https://www.yourdomain.com/logo.png",
+      "logo": "https://i.imgur.com/8edOVOS.png",
       "sameAs": [
         "https://facebook.com/yourpage",
         "https://instagram.com/yourpage",
@@ -121,7 +121,7 @@
       font-size: 1rem;
       padding: 5px 0;
     }
-    /* 合併後的 Navbar (頂部資訊區 + 導覽列) */
+    /* Navbar */
     .navbar {
       background: linear-gradient(
               135deg,
@@ -135,6 +135,12 @@
       font-weight: 700;
       letter-spacing: 1px;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
     }
     .navbar .social-icons a {
       color: #fff;
@@ -145,57 +151,20 @@
     .navbar .social-icons a:hover {
       color: #ffd700;
     }
-    /* 輪播圖 (Hero Section) */
+    /* 輪播圖 */
     .carousel-item {
       position: relative;
-      height: 100vh;
-      min-height: 500px;
+      height: 60vh;
+      min-height: 300px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
     }
-    .carousel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(30, 42, 120, 0.5), rgba(162, 58, 243, 0.5));
-    }
-    .carousel-caption {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .carousel-caption h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-    }
-    .carousel-caption p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-    /* 區塊標題 */
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #4e4e4e;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, #3348ff, #bf49ef);
-      margin: 10px auto 0;
-      border-radius: 2px;
+    /* 標題圖片，利用 mix-blend-mode 消除白底 */
+    .title-img {
+      mix-blend-mode: multiply;
     }
     /* 卡片樣式 */
-    .card-title {
-      font-weight: 700;
-      color: #4e4e4e;
-    }
     .card {
       transition: transform 0.3s, box-shadow 0.3s;
       border: none;
@@ -216,20 +185,16 @@
     .btn-custom:hover {
       background: linear-gradient(135deg, #bf49ef, #3348ff);
     }
-    /* 遊戲下載區塊 */
+    /* 遊戲下載區 - 背景改為白色，文字改為深色 */
     .download-section {
-      background: linear-gradient(
-              135deg,
-              rgba(191, 73, 239, 0.8),
-              rgba(58, 132, 255, 0.8)
-      );
-      color: #fff;
+      background-color: #fff;
+      color: #333;
       padding: 4rem 0;
     }
-    .download-section h2 {
-      color: #ffd700;
+    .download-section img {
+      max-width: 100%;
     }
-    /* About 區 (關於我們) */
+    /* About 區 */
     .about-section {
       padding: 4rem 0;
       background: #fff;
@@ -242,11 +207,6 @@
     .about-section p {
       font-size: 1.1rem;
       line-height: 1.8;
-    }
-    /* 推薦與特色亮點 (移除玩家推薦區塊) */
-    /* 這裡僅保留特色介紹區 */
-    .highlights-section {
-      display: none;
     }
     /* 特色介紹 區 */
     .features-section {
@@ -287,14 +247,17 @@
 <!-- 跑馬燈 -->
 <div class="marquee">
   <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-    最新公告：伺服器今晚進行例行維護，請提前保存進度！加入我們的社群獲取最新活動資訊！
+    🐟寶寶好可愛❤️
   </marquee>
 </div>
 
-<!-- 合併後的 Navbar (頂部資訊區 + 導覽列) -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">迎楓谷</a>
+    <a class="navbar-brand" href="#">
+      <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo">
+      迎楓谷
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽">
       <span class="navbar-toggler-icon"></span>
@@ -324,37 +287,18 @@
   </div>
 </nav>
 
-<!-- 輪播圖 (Hero Section) -->
+<!-- 輪播圖 (Hero Section) - 無文字 -->
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="輪播 1"></button>
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="輪播 2"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="輪播 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active" style="background-image: url('https://i.imgur.com/ZrBIqKu.jpeg');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>迎楓谷私服</h1>
-        <p>重溫經典，體驗全新冒險！</p>
-        <a href="#download" class="btn btn-custom btn-lg">立即下載</a>
-      </div>
+    <div class="carousel-item active" style="background-image: url('https://i.imgur.com/IslKf3c.jpeg');">
+      <!-- 無文字 -->
     </div>
-    <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080/4b0082/ffffff?text=冒險之旅');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>全新地圖挑戰</h1>
-        <p>探索未知領域，擊敗強大BOSS！</p>
-        <a href="#announcements" class="btn btn-custom btn-lg">查看公告</a>
-      </div>
-    </div>
-    <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x1080/191970/ffffff?text=限定活動');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>限定活動加持</h1>
-        <p>參與活動，獲取豐厚獎勵！</p>
-        <a href="#announcements" class="btn btn-custom btn-lg">立即參加</a>
-      </div>
+    <div class="carousel-item" style="background-image: url('https://i.imgur.com/FWyOhwZ.jpeg');">
+      <!-- 無文字 -->
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -367,27 +311,11 @@
   </button>
 </div>
 
-<!-- 關於我們 區 -->
-<section id="about" class="about-section">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <img src="https://via.placeholder.com/600x400/cccccc/333333?text=關於我們" alt="關於我們" class="about-img">
-      </div>
-      <div class="col-md-6">
-        <h2>關於迎楓谷</h2>
-        <p>迎楓谷私服致力於還原經典楓之谷的遊戲精神，同時融合全新創意與活動，讓老玩家重溫童年樂趣，新玩家體驗刺激冒險。我們以穩定的伺服器和高倍率經驗系統為基礎，提供一個公平且充滿挑戰的遊戲環境。</p>
-        <p>加入我們，與全球玩家共同分享遊戲心得，打造屬於你的冒險傳奇！</p>
-        <a href="#community" class="btn btn-custom">立即加入社群</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 公告 / 活動 區 -->
 <section id="announcements" class="py-5">
   <div class="container">
-    <h2 class="text-center">最新公告 / 活動</h2>
+    <!-- 標題圖片：公告 -->
+    <img src="https://i.imgur.com/yg5lTP8.jpeg" alt="公告圖" class="title-img img-fluid mx-auto d-block">
     <p class="text-center mb-4">在此區塊，我們將公佈最新遊戲更新、活動內容以及伺服器維護公告，讓玩家第一時間掌握所有資訊。</p>
     <div class="row g-4">
       <div class="col-md-4">
@@ -427,7 +355,8 @@
 <!-- 遊戲下載 區 (僅 Windows) -->
 <section id="download" class="download-section">
   <div class="container">
-    <h2 class="text-center">遊戲下載</h2>
+    <!-- 標題圖片：遊戲下載（使用新圖片並應用 mix-blend-mode 處理白底） -->
+    <img src="https://i.imgur.com/2xocj7k.jpeg" alt="遊戲下載圖" class="title-img img-fluid mx-auto d-block">
     <p class="text-center mb-4">下載迎楓谷 Windows 客戶端，立即展開全新冒險，體驗經典與創新的完美結合！</p>
     <div class="row justify-content-center">
       <div class="col-md-8 text-center">
