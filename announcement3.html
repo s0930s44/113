@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- 與 index.html 相同的 meta / SEO 設定 -->
   <title>【開服公告】迎楓谷伺服器 3/14 全新開放！</title>
   <link rel="icon" href="https://i.imgur.com/8edOVOS.png" type="image/png" />
-
-  <!-- 如果有其他 meta 或 Open Graph、Twitter Card等都可複製過來 -->
+  <!-- 其他 meta / SEO 設定 -->
 
   <!-- CSS：Bootstrap + 你自訂的 CSS -->
   <link rel="stylesheet" href="css/bootstrap.css" />
@@ -16,7 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    /* 可以直接複製 index.html 裡的自訂樣式，或匯入同一個 .css 檔 */
     body {
       font-family: 'Noto Sans TC', sans-serif;
       background-color: #f9f9f9;
@@ -31,7 +27,6 @@
       font-size: 1rem;
       padding: 5px 0;
     }
-    /* ... 其他自訂樣式 ... */
   </style>
 </head>
 <body>
@@ -42,10 +37,11 @@
   </marquee>
 </div>
 
-<!-- Navbar (若你想保留與主頁一致的導覽列) -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, rgba(51, 72, 255, 0.8) 0%, rgba(255, 229, 83, 0.6) 50%, rgba(191, 73, 239, 0.8) 100%);">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
+    <!-- 這裡改為直接連到最終網址，避免 # -->
+    <a class="navbar-brand" href="http://www.windmaplestoryv113.com/">
       <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo" style="height:40px;margin-right:10px;">
       迎楓谷
     </a>
@@ -55,13 +51,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#announcements">公告活動</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#download">遊戲下載</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#features">特色介紹</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#community">社群討論</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#support">客服支援</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#about">關於我們</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/">首頁</a></li>
+        <!-- 下面若不需要錨點 #announcements，可直接改成公告頁連結或回到同一頁 -->
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/announcements.html">公告活動</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/#download">遊戲下載</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/#features">特色介紹</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/#community">社群討論</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/#support">客服支援</a></li>
+        <li class="nav-item"><a class="nav-link" href="http://www.windmaplestoryv113.com/#about">關於我們</a></li>
       </ul>
       <div class="social-icons d-flex">
         <a href="https://facebook.com" class="text-white me-3" title="Facebook">
@@ -81,7 +78,8 @@
 <!-- 主要內容區：開服公告 -->
 <section class="py-5 container">
   <h1 class="text-center my-4">【開服公告】迎楓谷伺服器 3/14 全新開放！</h1>
-  <img src="https://i.imgur.com/IslKf3c.jpeg" alt="開服圖片" class="img-fluid mx-auto d-block mb-4" style="max-width: 800px;">
+  <!-- 圖片大小調整 -->
+  <img src="https://i.imgur.com/IslKf3c.jpeg" alt="開服圖片" class="img-fluid mx-auto d-block mb-4" style="max-width:600px; width:100%;">
 
   <p>親愛的玩家們，</p>
   <p>
@@ -94,7 +92,7 @@
   </p>
   <p>
     請大家提前下載客戶端並留意伺服器公告，以便第一時間參與活動及獲得獎勵。若在遊戲中遇到任何問題，
-    歡迎透過 <a href="index.html#support" class="text-decoration-none">客服支援</a> 與我們聯繫，我們將竭誠為您服務。
+    歡迎透過 <a href="http://www.windmaplestoryv113.com/#support" class="text-decoration-none">客服支援</a> 與我們聯繫，我們將竭誠為您服務。
   </p>
   <p class="mt-4">
     再次感謝您的支持，讓我們一起迎接這次全新冒險吧！
@@ -102,7 +100,7 @@
   <p class="text-end"><small>發佈日期：2025-03-14</small></p>
 </section>
 
-<!-- 頁尾 (如果想保留) -->
+<!-- 頁尾 -->
 <footer style="background-color: #232323; color: #ccc; padding: 2rem 0;">
   <div class="container text-center">
     <h5 class="footer-logo mb-2" style="color:#fff; font-weight:700; letter-spacing:1px;">迎楓谷</h5>
