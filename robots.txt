@@ -1,0 +1,6 @@
+# 允許所有搜尋引擎索引所有內容
+User-agent: *
+Disallow:
+
+# 如果您有網站地圖，請取消下方註解並修改 URL
+# Sitemap: https://username.github.io/sitemap.xml
