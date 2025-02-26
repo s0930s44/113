@@ -229,18 +229,27 @@
 
         /* 社群討論區美化 */
         .community-section {
-            background: #fff;
+            background: url('https://cdn.pongo.com.tw/storage/2021/09/%E5%90%84%E7%A8%AE%E7%A4%BE%E7%BE%A4%E5%AA%92%E9%AB%94-1024x341.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
             padding: 6rem 0;
         }
-        .community-section .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #3348ff;
+        .community-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 1;
         }
-        .community-section .section-header p {
-            font-size: 1.1rem;
-            color: #666;
+        .community-section .container {
+            position: relative;
+            z-index: 2;
         }
+
+        /* 其他社群區域設定 */
         .social-btn {
             font-size: 1.1rem;
             transition: all 0.3s ease;
