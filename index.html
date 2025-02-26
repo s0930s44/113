@@ -167,7 +167,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-    /* 標題圖片，利用 mix-blend-mode 消除白底 */
+    /* 標題圖片 */
     .title-img {
       mix-blend-mode: multiply;
     }
@@ -192,7 +192,7 @@
     .btn-custom:hover {
       background: linear-gradient(135deg, #bf49ef, #3348ff);
     }
-    /* 遊戲下載區 - 背景改為白色，文字改為深色 */
+    /* 遊戲下載區 */
     .download-section {
       background-color: #fff;
       color: #333;
@@ -220,8 +220,18 @@
       padding: 4rem 0;
       background: #f1f1f1;
     }
+    /* 側邊功能區 */
+    .sidebar-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
     /* 社群討論 區 */
     .community-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
+    /* 直播區 */
+    .player-live {
       padding: 4rem 0;
       background: #fff;
     }
@@ -254,14 +264,13 @@
 <!-- 跑馬燈 -->
 <div class="marquee">
   <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-    🐟寶寶好可愛❤️
+    最新公告: 迎楓谷 2015/03/14 正式開服！全新冒險啟動─經典楓之谷魅力、穩定伺服器、獨家活動副本與即時互動社群，快來體驗無與倫比的遊戲盛宴！
   </marquee>
 </div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
-    <!-- 將標題連結改為目標網址 -->
     <a class="navbar-brand" href="http://www.windmaplestoryv113.com/">
       <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo">
       迎楓谷
@@ -277,6 +286,7 @@
         <li class="nav-item"><a class="nav-link" href="#download">遊戲下載</a></li>
         <li class="nav-item"><a class="nav-link" href="#features">特色介紹</a></li>
         <li class="nav-item"><a class="nav-link" href="#community">社群討論</a></li>
+        <li class="nav-item"><a class="nav-link" href="#player-live">玩家直播區</a></li>
         <li class="nav-item"><a class="nav-link" href="#support">客服支援</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">關於我們</a></li>
       </ul>
@@ -357,6 +367,38 @@
   </div>
 </section>
 
+<!-- 側邊功能區：攻略推薦 & 開服倒數計時器 -->
+<section id="sidebar" class="sidebar-section">
+  <div class="container">
+    <div class="row">
+      <!-- 攻略推薦 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            攻略推薦
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="攻略1.html">新手入門攻略</a></li>
+            <li class="list-group-item"><a href="攻略2.html">進階戰鬥技巧</a></li>
+            <li class="list-group-item"><a href="攻略3.html">裝備強化秘訣</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 開服倒數計時器 -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            開服倒數計時
+          </div>
+          <div class="card-body text-center">
+            <h4 id="countdown"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 特色介紹 區 -->
 <section id="features" class="py-5 features-section">
   <div class="container">
@@ -368,7 +410,7 @@
         <div class="card h-100 text-center">
           <div class="card-body">
             <h5 class="card-title">遊戲內運彩體驗</h5>
-            <p class="card-text">在遊戲中直接參與運彩下注，隨時掌握賽事動態，享受下注刺激與樂趣！</p>
+            <p class="card-text">在遊戲中直接參與運彩下注，不僅能即時掌握賽事動態，還提供精確數據與即時比分，讓您與好友一較高下，享受下注的刺激與競技樂趣！</p>
           </div>
         </div>
       </div>
@@ -377,7 +419,7 @@
         <div class="card h-100 text-center">
           <div class="card-body">
             <h5 class="card-title">穩定伺服器設計</h5>
-            <p class="card-text">採用先進技術打造的穩定伺服器，確保遊戲運作順暢，延遲低、體驗佳！</p>
+            <p class="card-text">採用先進的架構與自動負載均衡技術，搭配多重備援系統與即時監控，確保遊戲運作順暢、延遲低，讓您無憂暢玩。</p>
           </div>
         </div>
       </div>
@@ -386,8 +428,47 @@
         <div class="card h-100 text-center">
           <div class="card-body">
             <h5 class="card-title">全新活動與副本</h5>
-            <p class="card-text">持續推出創意活動與獨家副本，為玩家帶來豐富多元的挑戰與驚喜！</p>
+            <p class="card-text">持續推出創意十足的限時活動與獨家副本挑戰，從每日任務到跨服競技，帶給您豐富多元的遊戲體驗與無限驚喜！</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 玩家直播區 -->
+<section id="player-live" class="py-5 player-live">
+  <div class="container">
+    <h2 class="text-center mb-4">玩家直播區</h2>
+    <p class="text-center mb-5">即時觀看玩家精彩直播，分享遊戲實況瞬間</p>
+    <!-- 標籤切換 -->
+    <ul class="nav nav-tabs justify-content-center mb-4" id="liveTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube" type="button" role="tab" aria-controls="youtube" aria-selected="true">
+          YouTube 直播
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="twitch-tab" data-bs-toggle="tab" data-bs-target="#twitch" type="button" role="tab" aria-controls="twitch" aria-selected="false">
+          Twitch 直播
+        </button>
+      </li>
+    </ul>
+    <!-- 直播內容 -->
+    <div class="tab-content" id="liveTabContent">
+      <!-- YouTube 直播 -->
+      <div class="tab-pane fade show active" id="youtube" role="tabpanel" aria-labelledby="youtube-tab">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/live_stream?channel=YOUR_YOUTUBE_CHANNEL_ID&autoplay=1"
+                  title="YouTube Live" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- Twitch 直播 -->
+      <div class="tab-pane fade" id="twitch" role="tabpanel" aria-labelledby="twitch-tab">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://player.twitch.tv/?channel=muse_tw&parent=www.windmaplestoryv113.com"
+                  title="Twitch Live" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -401,7 +482,9 @@
     <p class="text-center mb-4">加入迎楓谷玩家社群，分享遊戲心得、攻略與最新消息，打造一個友善且熱情的交流平台。</p>
     <div class="row justify-content-center">
       <div class="col-md-8 text-center">
-        <a href="https://discord.gg/aJwxSJyDn5" class="btn btn-primary me-2 mb-2" target="_blank">Discord 群組</a>
+        <a href="https://discord.gg/aJwxSJyDn5" class="btn btn-primary me-2 mb-2" target="_blank">
+          <i class="fab fa-discord me-1"></i> Discord 群組
+        </a>
         <a href="https://facebook.com" class="btn btn-outline-primary me-2 mb-2" target="_blank">
           <i class="fab fa-facebook-f me-1"></i> Facebook
         </a>
@@ -447,6 +530,23 @@
 <script>
   // 自動更新頁尾年份
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 開服倒數計時器功能
+  const targetDate = new Date("2025-03-14T00:00:00").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "已開服！";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = `${days}天 ${hours}時 ${minutes}分 ${seconds}秒`;
+  }, 1000);
 </script>
 </body>
 </html>
