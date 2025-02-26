@@ -248,23 +248,6 @@
             position: relative;
             z-index: 2;
         }
-
-        /* 其他社群區域設定 */
-        .social-btn {
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border-width: 2px;
-        }
-        .social-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 嘗試利用 blend mode 消除白底 */
-        .features-img {
-            background-color: transparent;
-            mix-blend-mode: multiply;
-        }
     </style>
 </head>
 <body>
@@ -292,7 +275,8 @@
                     <li class="nav-item"><a class="nav-link" href="#download">遊戲下載</a></li>
                     <li class="nav-item"><a class="nav-link" href="#features">特色介紹</a></li>
                     <li class="nav-item"><a class="nav-link" href="#community">社群討論</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#player-live">玩家直播區</a></li>
+                    <!-- 新增問題回報連結 -->
+                    <li class="nav-item"><a class="nav-link" href="issue_report.html">問題回報</a></li>
                     <li class="nav-item"><a class="nav-link" href="#support">客服支援</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">關於我們</a></li>
                 </ul>
@@ -407,8 +391,7 @@
     <!-- 特色介紹 區 -->
     <section id="features" class="features-section">
         <div class="container">
-            <!-- 加入 features-img 類別並嘗試用 blend mode 消除白底 -->
-            <img src="https://i.imgur.com/2AYCkrD.jpeg" alt="迎楓谷特色介紹" class="img-fluid mx-auto d-block features-img">
+            <img src="https://i.imgur.com/2AYCkrD.jpeg" alt="迎楓谷特色介紹" class="img-fluid mx-auto d-block">
             <p class="text-center mb-4">獨家打造的系統與功能，帶給您全新的遊戲體驗：</p>
             <div class="row g-4">
                 <!-- 卡片 1：遊戲內運彩體驗 -->
@@ -442,46 +425,6 @@
         </div>
     </section>
 
-    <!-- 玩家直播區 -->
-    <section id="player-live" class="player-live">
-        <div class="container">
-            <h2 class="text-center mb-4">玩家直播區</h2>
-            <p class="text-center mb-5">即時觀看玩家精彩直播，分享遊戲實況瞬間</p>
-            <!-- 標籤切換 -->
-            <ul class="nav nav-tabs justify-content-center mb-4" id="liveTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube-live" type="button" role="tab" aria-controls="youtube-live" aria-selected="true">YouTube</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="twitch-tab" data-bs-toggle="tab" data-bs-target="#twitch-live" type="button" role="tab" aria-controls="twitch-live" aria-selected="false">Twitch</button>
-                </li>
-            </ul>
-            <!-- 直播內容 -->
-            <div class="tab-content" id="liveTabContent">
-                <!-- YouTube 直播 -->
-                <div class="tab-pane fade show active" id="youtube-live" role="tabpanel" aria-labelledby="youtube-tab">
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/Va5TqdZO0Cg" title="YouTube Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Twitch 直播 -->
-                <div class="tab-pane fade" id="twitch-live" role="tabpanel" aria-labelledby="twitch-tab">
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://player.twitch.tv/?channel=muse_tw&parent=www.windmaplestoryv113.com" title="Twitch Live" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 社群討論 區 (美化版) -->
     <section id="community" class="community-section">
         <div class="container">
@@ -502,7 +445,6 @@
                        aria-label="加入迎楓谷 Discord 群組，與其他私服玩家即時討論交流">
                         <i class="fab fa-discord me-2"></i> Discord 群組
                     </a>
-
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/profile.php?id=61573786673786"
                        class="btn btn-outline-primary rounded-pill m-2 social-btn"
@@ -512,7 +454,6 @@
                        aria-label="前往迎楓谷 Facebook 粉絲專頁，追蹤最新公告與活動消息">
                         <i class="fab fa-facebook-f me-2"></i> Facebook 專頁
                     </a>
-
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/windmaplestory_v113?igsh=c2ZucG1jd3lzaHU1&utm_source=qr"
                        class="btn btn-outline-danger rounded-pill m-2 social-btn"
@@ -522,7 +463,6 @@
                        aria-label="追蹤迎楓谷 Instagram，搶先看遊戲美圖與最新限時動態">
                         <i class="fab fa-instagram me-2"></i> Instagram
                     </a>
-
                     <!-- Threads -->
                     <a href="https://www.threads.net/@windmaplestory_v113"
                        class="btn btn-outline-secondary rounded-pill m-2 social-btn"
@@ -532,7 +472,6 @@
                        aria-label="追蹤迎楓谷 Threads 帳號，獲得第一手遊戲資訊與活動預告">
                         <i class="fab fa-threads me-2"></i> Threads
                     </a>
-
                     <!-- LINE 官方帳號 -->
                     <a href="https://page.line.me/287adopz"
                        class="btn btn-outline-success rounded-pill m-2 social-btn"
