@@ -248,6 +248,12 @@
             position: relative;
             z-index: 2;
         }
+
+        /* 嘗試利用 blend mode 消除遊戲特色圖的白底 */
+        .features-img {
+            background-color: transparent;
+            mix-blend-mode: multiply;
+        }
     </style>
 </head>
 <body>
@@ -391,7 +397,8 @@
     <!-- 特色介紹 區 -->
     <section id="features" class="features-section">
         <div class="container">
-            <img src="https://i.imgur.com/2AYCkrD.jpeg" alt="迎楓谷特色介紹" class="img-fluid mx-auto d-block">
+            <!-- 加入 features-img 類別嘗試利用 blend mode 消除白底 -->
+            <img src="https://i.imgur.com/2AYCkrD.jpeg" alt="迎楓谷特色介紹" class="img-fluid mx-auto d-block features-img">
             <p class="text-center mb-4">獨家打造的系統與功能，帶給您全新的遊戲體驗：</p>
             <div class="row g-4">
                 <!-- 卡片 1：遊戲內運彩體驗 -->
