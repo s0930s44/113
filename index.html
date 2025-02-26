@@ -135,7 +135,7 @@
     }
     /* Navbar */
     .navbar {
-      background: linear-gradient(135deg, rgba(51, 72, 255, 0.8) 0%, rgba(255, 229, 83, 0.6) 50%, rgba(191, 73, 239, 0.8) 100%);
+      background: linear-gradient(135deg, rgba(51,72,255,0.8) 0%, rgba(255,229,83,0.6) 50%, rgba(191,73,239,0.8) 100%);
     }
     .navbar-brand {
       font-size: 1.8rem;
@@ -178,7 +178,7 @@
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(162, 58, 243, 0.2);
+      box-shadow: 0 10px 25px rgba(162,58,243,0.2);
     }
     /* 自訂按鈕 */
     .btn-custom {
@@ -444,31 +444,45 @@
     <!-- 標籤切換 -->
     <ul class="nav nav-tabs justify-content-center mb-4" id="liveTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube" type="button" role="tab" aria-controls="youtube" aria-selected="true">
-          YouTube 直播
+        <button class="nav-link active" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube-live" type="button" role="tab" aria-controls="youtube-live" aria-selected="true">
+          YouTube
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="twitch-tab" data-bs-toggle="tab" data-bs-target="#twitch" type="button" role="tab" aria-controls="twitch" aria-selected="false">
-          Twitch 直播
+        <button class="nav-link" id="twitch-tab" data-bs-toggle="tab" data-bs-target="#twitch-live" type="button" role="tab" aria-controls="twitch-live" aria-selected="false">
+          Twitch
         </button>
       </li>
     </ul>
     <!-- 直播內容 -->
     <div class="tab-content" id="liveTabContent">
       <!-- YouTube 直播 -->
-      <div class="tab-pane fade show active" id="youtube" role="tabpanel" aria-labelledby="youtube-tab">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://www.youtube.com/embed/live_stream?channel=YOUR_YOUTUBE_CHANNEL_ID&autoplay=1"
-                  title="YouTube Live" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
+      <div class="tab-pane fade show active" id="youtube-live" role="tabpanel" aria-labelledby="youtube-tab">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/Va5TqdZO0Cg"
+                      title="YouTube Video"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <!-- 可依需求新增更多 YouTube 直播項目 -->
         </div>
       </div>
       <!-- Twitch 直播 -->
-      <div class="tab-pane fade" id="twitch" role="tabpanel" aria-labelledby="twitch-tab">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://player.twitch.tv/?channel=muse_tw&parent=www.windmaplestoryv113.com"
-                  title="Twitch Live" allowfullscreen></iframe>
+      <div class="tab-pane fade" id="twitch-live" role="tabpanel" aria-labelledby="twitch-tab">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://player.twitch.tv/?channel=muse_tw&parent=www.windmaplestoryv113.com"
+                      title="Twitch Live"
+                      allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <!-- 可依需求新增更多 Twitch 直播項目 -->
         </div>
       </div>
     </div>
@@ -527,6 +541,7 @@
 
 <!-- Bootstrap 5 JS (含 Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
   // 自動更新頁尾年份
   document.getElementById('year').textContent = new Date().getFullYear();
