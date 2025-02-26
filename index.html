@@ -259,6 +259,12 @@
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
+        /* 嘗試利用 blend mode 消除白底 */
+        .features-img {
+            background-color: transparent;
+            mix-blend-mode: multiply;
+        }
     </style>
 </head>
 <body>
@@ -401,7 +407,8 @@
     <!-- 特色介紹 區 -->
     <section id="features" class="features-section">
         <div class="container">
-            <h2 class="text-center">迎楓谷特色介紹</h2>
+            <!-- 加入 features-img 類別並嘗試用 blend mode 消除白底 -->
+            <img src="https://i.imgur.com/2AYCkrD.jpeg" alt="迎楓谷特色介紹" class="img-fluid mx-auto d-block features-img">
             <p class="text-center mb-4">獨家打造的系統與功能，帶給您全新的遊戲體驗：</p>
             <div class="row g-4">
                 <!-- 卡片 1：遊戲內運彩體驗 -->
@@ -539,7 +546,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- 客服支援 區 -->
     <section id="support" class="support-section">
