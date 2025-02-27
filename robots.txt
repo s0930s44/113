@@ -1,6 +1,26 @@
-# 允許所有搜尋引擎索引所有內容
+# 允許所有搜尋引擎索引所有內容 - 最大化 SEO
 User-agent: *
-Disallow:
+Allow: /
 
-# 如果您有網站地圖，請取消下方註解並修改 URL
-https://www.windmaplestoryv113.com/sitemap.xml
+# 針對主要搜尋引擎的優化設置 - 維持合理的爬蟲頻率
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Crawl-delay: 1
+
+# 允許社交媒體完全爬取 - 增加社交分享可能性
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# 網站地圖 - 幫助搜尋引擎發現所有頁面
+Sitemap: https://www.windmaplestoryv113.com/sitemap.xml
