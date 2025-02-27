@@ -15,110 +15,488 @@
   <title>問題回報｜迎楓谷</title>
   <link rel="icon" href="https://i.imgur.com/8edOVOS.png" type="image/png">
 
-  <!-- 引入首頁用的 CSS 與 Font -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-pap9zG3YtD2nBbwVVuGT3Y+cbnrxBr7Y1x9B6tKe3tV4LjQ3VZB+Qbg1l6aXldmqZk4zM+YY5dDdK+9YF+4ICg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #3348ff;
+      --secondary: #bf49ef;
+      --accent: #ffe553;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --body-bg: #f0f2f5;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --text-color: #333;
+      --muted-text: #6c757d;
+      --border-color: #dee2e6;
+      --gradient-primary: linear-gradient(135deg, rgba(51, 72, 255, 0.8) 0%, rgba(255, 229, 83, 0.6) 50%, rgba(191, 73, 239, 0.8) 100%);
+      --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+      --transition: all 0.3s ease;
+    }
+
+    /* Base Styles */
     body {
       font-family: 'Noto Sans TC', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
+      background-color: var(--body-bg);
+      color: var(--text-color);
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
-    a { text-decoration: none; }
-    header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--secondary);
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    /* Marquee Styles */
+    .marquee {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    /* Navbar Styles */
     .navbar {
-      background: linear-gradient(135deg, rgba(51,72,255,0.8) 0%, rgba(255,229,83,0.6) 50%, rgba(191,73,239,0.8) 100%);
+      background: var(--gradient-primary);
+      box-shadow: var(--shadow);
       padding: 0.75rem 1rem;
+      transition: var(--transition);
+      z-index: 1000;
     }
-    .navbar-brand { font-size: 1.8rem; font-weight: 700; }
-    .navbar-brand img { height: 40px; margin-right: 10px; }
-    .navbar-nav .nav-link { color: #fff !important; margin: 0 0.5rem; font-weight: 500; }
-    .navbar-nav .nav-link:hover { color: #ffd700 !important; }
-    footer {
-      background-color: #232323;
-      color: #ccc;
-      padding: 2rem 0;
+
+    .navbar-brand {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
     }
-    footer a { color: #ccc; transition: color 0.3s; }
-    footer a:hover { color: #fff; }
-    .footer-logo { font-weight: 700; letter-spacing: 1px; color: #fff; }
+
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+      filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: var(--light);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      position: relative;
+    }
+
+    .navbar-dark .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover::after,
+    .navbar-dark .navbar-nav .nav-link.active::after {
+      width: 80%;
+    }
+
+    .social-icons a {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--light) !important;
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* Issue Report Section */
+    #issue-report {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-primary);
+      margin: 0.5rem auto 0;
+      border-radius: 3px;
+    }
+
+    .report-container {
+      background-color: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
 
     /* 使表單隨頁面大小調整 */
     .iframe-container {
       width: 100%;
-      /* 調整 calc() 中扣除的高度以符合 header 與 footer 的實際高度 */
-      height: calc(100vh - 200px);
+      height: calc(100vh - 320px);
+      min-height: 600px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
+
     .full-responsive-form {
       width: 100%;
       height: 100%;
       border: none;
+      border-radius: 10px;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #232323;
+      color: #ccc;
+      padding: 3rem 0 1rem;
+      margin-top: auto;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .footer-logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-about {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #aaa;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Scroll to Top Button */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    #scrollTop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #scrollTop:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background-color: rgba(26, 26, 46, 0.95);
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      .social-icons {
+        margin-top: 1rem;
+        justify-content: center;
+      }
+
+      .iframe-container {
+        height: calc(100vh - 300px);
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      #issue-report {
+        padding: 3rem 0;
+      }
+
+      .report-container {
+        padding: 1.5rem;
+      }
+
+      .iframe-container {
+        min-height: 500px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      #issue-report {
+        padding: 2rem 0;
+      }
+
+      .report-container {
+        padding: 1rem;
+      }
+
+      .iframe-container {
+        height: calc(100vh - 250px);
+        min-height: 450px;
+      }
     }
   </style>
 </head>
 <body>
-<!-- Header 與導覽 (與首頁相同) -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo">
-        迎楓谷
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
-          <li class="nav-item"><a class="nav-link" href="#announcements">公告活動</a></li>
-          <li class="nav-item"><a class="nav-link" href="#download">遊戲下載</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">特色介紹</a></li>
-          <li class="nav-item"><a class="nav-link" href="#community">社群討論</a></li>
-          <li class="nav-item"><a class="nav-link active" href="issue_report.html">問題回報</a></li>
-          <li class="nav-item"><a class="nav-link" href="#support">客服支援</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">關於我們</a></li>
-        </ul>
+<!-- 跑馬燈 -->
+<div class="marquee">
+  <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+    最新公告: 迎楓谷 2015/03/14 正式開服！全新冒險啟動─經典楓之谷魅力、穩定伺服器、獨家活動副本與即時互動社群，快來體驗無與倫比的遊戲盛宴！
+  </marquee>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo">
+      迎楓谷
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="切換導覽">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#announcements">公告活動</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#download">遊戲下載</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#features">特色介紹</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#community">社群討論</a></li>
+        <li class="nav-item"><a class="nav-link active" href="issue_report.html">問題回報</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#support">客服支援</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">關於我們</a></li>
+      </ul>
+      <div class="social-icons d-flex">
+        <a href="https://www.facebook.com/profile.php?id=61573786673786" target="_blank" title="Facebook" class="me-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/windmaplestory_v113?igsh=c2ZucG1jd3lzaHU1&utm_source=qr" target="_blank" title="Instagram" class="me-2">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://discord.gg/aJwxSJyDn5" target="_blank" title="Discord" class="me-2">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://page.line.me/287adopz" target="_blank" title="LINE">
+          <i class="fab fa-line"></i>
+        </a>
       </div>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <!-- 主要內容：問題回報 -->
 <main>
-  <section id="issue-report" class="py-5">
+  <section id="issue-report">
     <div class="container">
-      <h2 class="text-center mb-4">問題回報</h2>
-      <p class="text-center mb-3">請填寫以下表單，告知您的問題與建議。</p>
+      <h2 class="section-title" data-aos="fade-up">問題回報</h2>
+      <p class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">請填寫以下表單，告知您的問題與建議。</p>
+
       <!-- 將 Google 表單嵌入於自訂容器，依容器大小自動調整 -->
-      <div class="iframe-container">
-        <iframe src="https://forms.gle/pHpERTQJhQMAAXhr8" class="full-responsive-form" frameborder="0" marginheight="0" marginwidth="0">
-          載入中…
-        </iframe>
+      <div class="report-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="iframe-container">
+          <iframe src="https://forms.gle/pHpERTQJhQMAAXhr8" class="full-responsive-form" frameborder="0" marginheight="0" marginwidth="0">
+            載入中…
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
+<!-- 滾動頂部按鈕 -->
+<div id="scrollTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
 <!-- Footer -->
 <footer>
-  <div class="container text-center">
-    <h5 class="footer-logo mb-2">迎楓谷</h5>
-    <p class="mb-1">Copyright <span id="year"></span> © All Rights Reserved.</p>
-    <p class="mb-0"><small>本私服僅供玩家交流與回憶，請遵守相關法律與版權規定。</small></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mx-auto text-center">
+        <div class="footer-logo">
+          <img src="https://i.imgur.com/8edOVOS.png" alt="迎楓谷 Logo">
+          <div class="footer-logo-text">迎楓谷</div>
+        </div>
+        <p class="footer-about">迎楓谷私服帶您體驗經典楓之谷的魅力，搭配全新活動與特色系統，提供穩定伺服器與獨家遊戲體驗！</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61573786673786" target="_blank" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/windmaplestory_v113?igsh=c2ZucG1jd3lzaHU1&utm_source=qr" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://discord.gg/aJwxSJyDn5" target="_blank" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://page.line.me/287adopz" target="_blank" title="LINE">
+            <i class="fab fa-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © <span id="year"></span> 迎楓谷 All Rights Reserved.</p>
+      <p><small>本私服僅供玩家交流與回憶，請遵守相關法律與版權規定。</small></p>
+    </div>
   </div>
 </footer>
 
+<!-- Bootstrap 5 JS (含 Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
 <script>
+  // 初始化 AOS 動畫
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // 導航欄滾動效果
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // 滾動頂部按鈕
+  window.addEventListener('scroll', function() {
+    const scrollTop = document.getElementById('scrollTop');
+    if (window.scrollY > 300) {
+      scrollTop.classList.add('active');
+    } else {
+      scrollTop.classList.remove('active');
+    }
+  });
+
+  document.getElementById('scrollTop').addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // 平滑滾動到錨點
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 100,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // 自動更新頁尾年份
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
