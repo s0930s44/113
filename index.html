@@ -117,7 +117,7 @@
                 "@type": "VirtualLocation",
                 "url": "https://www.windmaplestoryv113.com/"
             },
-            "description": "迎楓谷伺服器將於 2025/03/14 正式開服，精彩活動與特色系統等你來體驗！",
+            "description": "迎楓谷伺服器將於 2025/03/21 正式開服，精彩活動與特色系統等你來體驗！",
             "inLanguage": "zh-Hant",
             "image": "https://i.imgur.com/ZrBIqKu.jpeg",
             "offers": {
@@ -1430,12 +1430,136 @@
             0 0 15px rgba(106, 61, 232, 0.5),
             0 0 20px rgba(106, 61, 232, 0.5);
         }
+
+        /* 側邊懸浮Discord按鈕 */
+        .floating-discord {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        .floating-discord a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(106, 61, 232, 0.5);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .floating-discord a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(106, 61, 232, 0.7);
+        }
+
+        .floating-discord i {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .floating-discord span {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 使按鈕在小螢幕上更小 */
+        @media (max-width: 767.98px) {
+            .floating-discord a {
+                width: 60px;
+                height: 60px;
+            }
+
+            .floating-discord i {
+                font-size: 24px;
+            }
+
+            .floating-discord span {
+                font-size: 10px;
+            }
+        }
+
+        /* 專業經驗描述美化 */
+        .experience-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 15px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-right: 10px;
+            box-shadow: 0 3px 10px rgba(106, 61, 232, 0.3);
+        }
+
+        .experience-badge i {
+            margin-right: 8px;
+        }
+
+        .support-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 120px;
+            background: var(--light);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .stat-item:hover .stat-number {
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 <!-- 滾動頂部按鈕 -->
 <div class="scroll-top" id="scrollTop">
     <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- 側邊懸浮Discord按鈕 -->
+<div class="floating-discord">
+    <a href="https://discord.gg/aJwxSJyDn5" target="_blank" title="加入迎楓谷Discord">
+        <i class="fab fa-discord"></i>
+        <span>加入Discord</span>
+    </a>
 </div>
 
 <!-- Header 區塊 -->
@@ -1510,7 +1634,7 @@
                 </div>
                 <div class="carousel-item" style="background-image: url('https://i.imgur.com/R4r3DeS.jpeg')">
                     <div class="carousel-caption">
-                        <h1 class="hero-title neon-text" data-aos="fade-up">全新伺服器 - 3/14 盛大開服</h1>
+                        <h1 class="hero-title neon-text" data-aos="fade-up">全新伺服器 - 3/21 盛大開服</h1>
                         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">邀您一同冒險，豐富獎勵與專屬活動等你來參與！</p>
                         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
                             <a href="#download" class="btn btn-primary btn-lg me-3 shine">搶先下載</a>
@@ -1558,7 +1682,7 @@
                                 <img src="https://i.imgur.com/R4r3DeS.jpeg" alt="開服公告">
                             </div>
                             <div class="announcement-content">
-                                <span class="announcement-date"><i class="far fa-calendar-alt me-2"></i>2025/03/01</span>
+                                <span class="announcement-date"><i class="far fa-calendar-alt me-2"></i>2025/03/21</span>
                                 <h3 class="announcement-title">【開服公告】3/21 全新開放</h3>
                                 <p class="announcement-text">迎楓谷伺服器將於 3/21 正式開服！精彩活動與特色系統等你來體驗！</p>
                                 <a href="announcement3.html" class="btn btn-primary">詳細內容</a>
@@ -1809,6 +1933,35 @@
                         </div>
                         <h3 class="support-title">專業客服團隊</h3>
                         <p class="support-text">若您在使用過程中遇到任何問題、BUG 回報或帳號疑難，請透過下列方式聯繫我們，我們將竭誠為您服務。</p>
+
+                        <!-- 專業經驗描述 - 美化版 -->
+                        <div class="support-stats" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-item">
+                                <span class="stat-number">5年+</span>
+                                <span class="stat-label">開服經驗</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">團隊成員</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">全天候服務</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center flex-wrap mb-4">
+                            <div class="experience-badge" data-aos="zoom-in" data-aos-delay="350">
+                                <i class="fas fa-certificate"></i> 開服經驗 5年+
+                            </div>
+                            <div class="experience-badge" data-aos="zoom-in" data-aos-delay="400">
+                                <i class="fas fa-users"></i> 團隊人數 10+
+                            </div>
+                            <div class="experience-badge" data-aos="zoom-in" data-aos-delay="450">
+                                <i class="fas fa-clock"></i> 7/24 全天候客服
+                            </div>
+                        </div>
+
                         <ul class="support-list">
                             <li>遊戲問題與 BUG 回報</li>
                             <li>帳號相關疑難排解</li>
@@ -1951,8 +2104,8 @@
 <!-- 自訂 JS -->
 <script>
 
-        // 倒數計時器獨立函數
-        document.addEventListener('DOMContentLoaded', function() {
+    // 倒數計時器獨立函數
+    document.addEventListener('DOMContentLoaded', function() {
         // 目標時間：2025年3月21日晚上7點
         const targetDate = new Date("2025-03-21T19:00:00").getTime();
 
@@ -1963,51 +2116,51 @@
         const timerInterval = setInterval(updateCountdown, 1000);
 
         function updateCountdown() {
-        // 獲取現在時間
-        const now = new Date().getTime();
+            // 獲取現在時間
+            const now = new Date().getTime();
 
-        // 計算時間差
-        const distance = targetDate - now;
+            // 計算時間差
+            const distance = targetDate - now;
 
-        // 如果已經到了目標時間
-        if (distance < 0) {
-        clearInterval(timerInterval);
-        setCountdownValues("00", "00", "00", "00");
-        return;
-    }
+            // 如果已經到了目標時間
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                setCountdownValues("00", "00", "00", "00");
+                return;
+            }
 
-        // 計算天、時、分、秒
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // 計算天、時、分、秒
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // 更新顯示的數值
-        setCountdownValues(
-        days.toString().padStart(2, '0'),
-        hours.toString().padStart(2, '0'),
-        minutes.toString().padStart(2, '0'),
-        seconds.toString().padStart(2, '0')
-        );
-    }
+            // 更新顯示的數值
+            setCountdownValues(
+                days.toString().padStart(2, '0'),
+                hours.toString().padStart(2, '0'),
+                minutes.toString().padStart(2, '0'),
+                seconds.toString().padStart(2, '0')
+            );
+        }
 
         function setCountdownValues(days, hours, minutes, seconds) {
-        // 直接用 document.getElementById 獲取元素並更新內容
-        const daysEl = document.getElementById("countdown-days");
-        const hoursEl = document.getElementById("countdown-hours");
-        const minutesEl = document.getElementById("countdown-minutes");
-        const secondsEl = document.getElementById("countdown-seconds");
+            // 直接用 document.getElementById 獲取元素並更新內容
+            const daysEl = document.getElementById("countdown-days");
+            const hoursEl = document.getElementById("countdown-hours");
+            const minutesEl = document.getElementById("countdown-minutes");
+            const secondsEl = document.getElementById("countdown-seconds");
 
-        // 檢查元素是否存在，若存在則更新內容
-        if (daysEl) daysEl.innerHTML = days;
-        if (hoursEl) hoursEl.innerHTML = hours;
-        if (minutesEl) minutesEl.innerHTML = minutes;
-        if (secondsEl) secondsEl.innerHTML = seconds;
+            // 檢查元素是否存在，若存在則更新內容
+            if (daysEl) daysEl.innerHTML = days;
+            if (hoursEl) hoursEl.innerHTML = hours;
+            if (minutesEl) minutesEl.innerHTML = minutes;
+            if (secondsEl) secondsEl.innerHTML = seconds;
 
-        // 輸出調試信息，幫助找出問題
-        console.log(`倒數計時：${days}天 ${hours}時 ${minutes}分 ${seconds}秒`);
-        console.log(`元素存在檢查：日=${!!daysEl}, 時=${!!hoursEl}, 分=${!!minutesEl}, 秒=${!!secondsEl}`);
-    }
+            // 輸出調試信息，幫助找出問題
+            console.log(`倒數計時：${days}天 ${hours}時 ${minutes}分 ${seconds}秒`);
+            console.log(`元素存在檢查：日=${!!daysEl}, 時=${!!hoursEl}, 分=${!!minutesEl}, 秒=${!!secondsEl}`);
+        }
     });
 
     // 初始化 AOS 動畫
