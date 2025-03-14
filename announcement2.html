@@ -16,6 +16,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <!-- Swiper Slider CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 
     <style>
         :root {
@@ -178,71 +180,226 @@
             color: var(--secondary);
         }
 
-        /* 預覽卡片樣式 - 修改後確保圖片完整顯示 */
-        .preview-section {
-            padding: 10px;
-            background-color: rgba(248, 249, 250, 0.5);
+        /* 超級精美畫廊樣式 */
+        .super-gallery-section {
+            background: linear-gradient(145deg, #f6f7fa, #ffffff);
             border-radius: 15px;
-            margin-bottom: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-top: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid rgba(222, 226, 230, 0.6);
         }
 
-        .preview-card {
+        .super-gallery-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: 17px;
+            filter: blur(5px);
+            opacity: 0.5;
+        }
+
+        .super-gallery-title {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .super-gallery-title::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background: var(--gradient-primary);
+            bottom: -10px;
+            left: 15%;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
-        .preview-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .super-gallery-title i {
+            margin-right: 10px;
+            color: var(--primary);
         }
 
-        .preview-image {
+        .main-display {
             position: relative;
             overflow: hidden;
-            flex: 1;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .preview-image img {
-            width: 100%;
-            height: auto;
-            object-fit: contain; /* 改為contain以顯示整張圖 */
+        .main-display img {
+            max-width: 100%;
             max-height: 100%;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
-        .preview-card:hover .preview-image img {
-            transform: scale(1.05);
+        .main-image-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        .preview-caption {
-            position: relative; /* 改為相對定位 */
+        .image-tools {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            padding: 5px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .image-tools:hover {
+            opacity: 1;
+        }
+
+        .tool-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ffffff;
+            color: var(--primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .tool-button:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .image-caption {
+            position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--primary); /* 使用主色調 */
-            padding: 10px 15px;
-            color: #fff;
-            font-weight: 500;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+            padding: 25px 20px 15px;
+            color: white;
             text-align: center;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        @media (max-width: 767.98px) {
-            .preview-container .row {
-                margin-left: -10px;
-                margin-right: -10px;
-            }
+        .image-caption h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-            .preview-container [class*="col-"] {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
+        .image-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .thumbnail-slider {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            padding: 0 30px;
+        }
+
+        .thumbnail-item {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 3px solid transparent;
+        }
+
+        .thumbnail-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail-item:hover::after {
+            opacity: 0;
+        }
+
+        .thumbnail-item.active {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .thumbnail-item.active::after {
+            opacity: 0;
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .thumbnail-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .thumbnail-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px 10px 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            z-index: 2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
         /* Footer Styles */
@@ -436,11 +593,32 @@
                 margin-top: 1rem;
                 justify-content: center;
             }
+
+            .main-display {
+                height: 400px;
+            }
         }
 
         @media (max-width: 767.98px) {
             .announcement-content {
                 padding: 1.5rem;
+            }
+
+            .thumbnail-item {
+                width: 120px;
+                height: 80px;
+            }
+
+            .main-display {
+                height: 350px;
+            }
+
+            .image-caption h4 {
+                font-size: 1.2rem;
+            }
+
+            .image-caption p {
+                font-size: 0.9rem;
             }
         }
 
@@ -448,6 +626,75 @@
             .announcement-content {
                 padding: 1rem;
             }
+
+            .thumbnail-item {
+                width: 100px;
+                height: 70px;
+            }
+
+            .main-display {
+                height: 300px;
+            }
+
+            .thumbnail-label {
+                padding: 10px 5px 5px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Modal Gallery Styles */
+        .modal-gallery-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-gallery-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-gallery-content {
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+            padding: 20px;
+        }
+
+        .modal-gallery-image {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
         }
     </style>
 </head>
@@ -534,55 +781,54 @@
 
             <p class="text-end"><small>發佈日期：2025-03-15</small></p>
 
-            <!-- 系統介紹圖片 - 改進版 -->
-            <div class="preview-section mt-5">
-                <h5 class="text-center mb-4" style="color: var(--secondary); font-weight: 700;">
-                    <i class="fas fa-desktop me-2"></i>運彩系統介面預覽
-                </h5>
+            <!-- 系統介紹圖片 - 超精美版 -->
+            <div class="super-gallery-section">
+                <h3 class="super-gallery-title">
+                    <i class="fas fa-desktop"></i>運彩系統介面預覽
+                </h3>
 
-                <div class="preview-container">
-                    <div class="row g-4">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="preview-card">
-                                <div class="preview-image">
-                                    <img src="https://i.imgur.com/uqlXCNc.jpeg" alt="運彩系統介紹圖1" class="img-fluid">
-                                </div>
-                                <div class="preview-caption">
-                                    <span>投注主介面</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="preview-card">
-                                <div class="preview-image">
-                                    <img src="https://i.imgur.com/fLCWh6q.jpeg" alt="運彩系統介紹圖2" class="img-fluid">
-                                </div>
-                                <div class="preview-caption">
-                                    <span>賽事列表</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="preview-card">
-                                <div class="preview-image">
-                                    <img src="https://i.imgur.com/nDSOUUA.jpeg" alt="運彩系統介紹圖3" class="img-fluid">
-                                </div>
-                                <div class="preview-caption">
-                                    <span>投注紀錄</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="preview-card">
-                                <div class="preview-image">
-                                    <img src="https://i.imgur.com/eTp4S0i.jpeg" alt="運彩系統介紹圖4" class="img-fluid">
-                                </div>
-                                <div class="preview-caption">
-                                    <span>即時比分</span>
-                                </div>
-                            </div>
+                <div class="main-display">
+                    <div class="main-image-wrapper">
+                        <img id="main-gallery-image" src="https://i.imgur.com/uqlXCNc.jpeg" alt="運彩系統主介面" class="img-fluid">
+                        <div class="image-tools">
+                            <button class="tool-button" id="zoomButton" title="放大檢視">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
                         </div>
                     </div>
+                    <div class="image-caption">
+                        <h4 id="main-gallery-title">投注主介面</h4>
+                        <p id="main-gallery-desc">直觀易用的投注操作介面，一目了然的賽事資訊</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-slider">
+                    <div class="thumbnail-item active" data-img="https://i.imgur.com/uqlXCNc.jpeg" data-title="投注主介面" data-desc="直觀易用的投注操作介面，一目了然的賽事資訊">
+                        <img src="https://i.imgur.com/uqlXCNc.jpeg" alt="縮圖1">
+                        <div class="thumbnail-label">投注主介面</div>
+                    </div>
+                    <div class="thumbnail-item" data-img="https://i.imgur.com/fLCWh6q.jpeg" data-title="賽事列表" data-desc="完整的體育賽事列表，即時更新的賽事資訊">
+                        <img src="https://i.imgur.com/fLCWh6q.jpeg" alt="縮圖2">
+                        <div class="thumbnail-label">賽事列表</div>
+                    </div>
+                    <div class="thumbnail-item" data-img="https://i.imgur.com/nDSOUUA.jpeg" data-title="投注紀錄" data-desc="查看所有投注歷史，輕鬆掌握您的投注狀態">
+                        <img src="https://i.imgur.com/nDSOUUA.jpeg" alt="縮圖3">
+                        <div class="thumbnail-label">投注紀錄</div>
+                    </div>
+                    <div class="thumbnail-item" data-img="https://i.imgur.com/eTp4S0i.jpeg" data-title="即時比分" data-desc="實時更新的比分情況，讓您隨時了解賽事動態">
+                        <img src="https://i.imgur.com/eTp4S0i.jpeg" alt="縮圖4">
+                        <div class="thumbnail-label">即時比分</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 圖片放大顯示的模態框 -->
+            <div class="modal-gallery-backdrop" id="imageModal">
+                <div class="modal-gallery-content">
+                    <button class="modal-close" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <img id="modal-image" src="" alt="高清圖片" class="modal-gallery-image">
                 </div>
             </div>
         </div>
@@ -668,6 +914,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AOS Animation Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <script>
     // 初始化 AOS 動畫
@@ -717,7 +965,66 @@
             }
         });
     });
-
+    // 超級畫廊功能
+    document.addEventListener('DOMContentLoaded', function() {
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        const mainImage = document.getElementById('main-gallery-image');
+        const mainTitle = document.getElementById('main-gallery-title');
+        const mainDesc = document.getElementById('main-gallery-desc');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modal-image');
+        const zoomButton = document.getElementById('zoomButton');
+        const closeModal = document.getElementById('closeModal');
+// 縮圖點擊事件
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+// 移除所有縮圖的active狀態
+                thumbnails.forEach(t => t.classList.remove('active'));
+// 添加當前縮圖的active狀態
+                this.classList.add('active');
+// 設置主圖片淡出效果
+                mainImage.style.opacity = 0;
+// 更新主圖片和描述
+                setTimeout(() => {
+                    mainImage.src = this.getAttribute('data-img');
+                    mainTitle.textContent = this.getAttribute('data-title');
+                    mainDesc.textContent = this.getAttribute('data-desc');
+// 主圖片淡入效果
+                    mainImage.style.opacity = 1;
+                }, 300);
+            });
+        });
+// 放大按鈕點擊事件
+        zoomButton.addEventListener('click', function() {
+// 獲取當前活動縮圖的圖片路徑
+            const activeThumb = document.querySelector('.thumbnail-item.active');
+            const imgSrc = activeThumb.getAttribute('data-img');
+// 設置模態框圖片
+            modalImage.src = imgSrc;
+// 顯示模態框
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滾動
+        });
+// 關閉模態框按鈕點擊事件
+        closeModal.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // 恢復背景滾動
+        });
+// 點擊模態框背景關閉
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+// ESC鍵關閉模態框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
     // 自動更新頁尾年份
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
