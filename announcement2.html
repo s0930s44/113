@@ -178,6 +178,73 @@
             color: var(--secondary);
         }
 
+        /* 預覽卡片樣式 - 修改後確保圖片完整顯示 */
+        .preview-section {
+            padding: 10px;
+            background-color: rgba(248, 249, 250, 0.5);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .preview-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .preview-image {
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* 改為contain以顯示整張圖 */
+            max-height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .preview-card:hover .preview-image img {
+            transform: scale(1.05);
+        }
+
+        .preview-caption {
+            position: relative; /* 改為相對定位 */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary); /* 使用主色調 */
+            padding: 10px 15px;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        @media (max-width: 767.98px) {
+            .preview-container .row {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+
+            .preview-container [class*="col-"] {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
         /* Footer Styles */
         footer {
             background-color: #232323;
@@ -454,7 +521,7 @@
             </ul>
 
             <div class="alert alert-info mt-4">
-                <strong>小提示：</strong> 建議在投注前先了解各項球類規則及賠率計算方式，理性投注、享受樂趣！
+                <i class="fas fa-lightbulb me-2"></i><strong>小提示：</strong> 建議在投注前先了解各項球類規則及賠率計算方式，理性投注、享受樂趣！
             </div>
 
             <p class="mt-4">
@@ -467,20 +534,55 @@
 
             <p class="text-end"><small>發佈日期：2025-03-15</small></p>
 
-            <!-- 系統介紹圖片 - 放在文字下方且較小 -->
-            <h5 class="mt-5 mb-3 text-center" style="color: var(--secondary);">運彩系統介面預覽</h5>
-            <div class="row g-3 mt-2">
-                <div class="col-md-3">
-                    <img src="https://i.imgur.com/uqlXCNc.jpeg" alt="運彩系統介紹圖1" class="img-fluid rounded shadow" style="max-width: 100%;">
-                </div>
-                <div class="col-md-3">
-                    <img src="https://i.imgur.com/fLCWh6q.jpeg" alt="運彩系統介紹圖2" class="img-fluid rounded shadow" style="max-width: 100%;">
-                </div>
-                <div class="col-md-3">
-                    <img src="https://i.imgur.com/nDSOUUA.jpeg" alt="運彩系統介紹圖3" class="img-fluid rounded shadow" style="max-width: 100%;">
-                </div>
-                <div class="col-md-3">
-                    <img src="https://i.imgur.com/eTp4S0i.jpeg" alt="運彩系統介紹圖4" class="img-fluid rounded shadow" style="max-width: 100%;">
+            <!-- 系統介紹圖片 - 改進版 -->
+            <div class="preview-section mt-5">
+                <h5 class="text-center mb-4" style="color: var(--secondary); font-weight: 700;">
+                    <i class="fas fa-desktop me-2"></i>運彩系統介面預覽
+                </h5>
+
+                <div class="preview-container">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="preview-card">
+                                <div class="preview-image">
+                                    <img src="https://i.imgur.com/uqlXCNc.jpeg" alt="運彩系統介紹圖1" class="img-fluid">
+                                </div>
+                                <div class="preview-caption">
+                                    <span>投注主介面</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="preview-card">
+                                <div class="preview-image">
+                                    <img src="https://i.imgur.com/fLCWh6q.jpeg" alt="運彩系統介紹圖2" class="img-fluid">
+                                </div>
+                                <div class="preview-caption">
+                                    <span>賽事列表</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="preview-card">
+                                <div class="preview-image">
+                                    <img src="https://i.imgur.com/nDSOUUA.jpeg" alt="運彩系統介紹圖3" class="img-fluid">
+                                </div>
+                                <div class="preview-caption">
+                                    <span>投注紀錄</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="preview-card">
+                                <div class="preview-image">
+                                    <img src="https://i.imgur.com/eTp4S0i.jpeg" alt="運彩系統介紹圖4" class="img-fluid">
+                                </div>
+                                <div class="preview-caption">
+                                    <span>即時比分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
